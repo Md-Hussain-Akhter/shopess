@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Timer </title>
+    <!-- Linking JavaScript File -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+    
+    
+    Geeks Help
+    HomeprojectsHow to create coming soon page in HTML, CSS and JavaScript
+    How to create coming soon page in HTML, CSS and JavaScript
+    raju_webdev
+    Hey, developers welcome to Day 25 of our 90Days 90Projects challenge. And in Day 25 we are going to create a Dropdown menu using HTML CSS and JavaScript Source Code
+    
+    
+    
+    So to run this code you just need to copy the HTML and CSS code and run it into your code Editor. 
+    
+    Preview
+    how to create coming soon page in html, simple coming soon page html , simple coming soon page html free, coming soon page template html, coming soon page html github,
+    
+    
+    HTML Code
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Timer </title>
+    <!-- Linking JavaScript File -->
+    <link rel="stylesheet" href="style.css">
+    </head>
+    
+    <body>
+    
+    <section class="container">
+    <!-- Replace this img src with your logo  -->
+    <img src="./logo.png" alt="">
+    <h2 class="coming-soon"> Coming soon</h2>
+    <p> We are building special thing for you! and this will be coming within</p>
+    <div class="timer-container">
+    <p><span id="days"></span> <br><span>Days</span></p><span class="columns">:</span>
+    <p><span id="hours"></span> <br><span> Hours </span></p><span class="columns">:</span>
+    <p> <span id="minutes"></span> <br><span> Minutes </span></p><span class="columns">:</span>
+    <p> <span id="seconds"></span><br><span> Seconds </span></p>
+    </div>
+    </section>
+    
+    </body>
+    <!-- Adding JavaScript File -->
+    <script src="script.js"></script>
+    
+    </html>
+    
+    
+    
+    
+    CSS Code
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    }
+    
+    body {
+    color: white;
+    background-color: purple;
+    }
+    
+    .container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
+    
+    .container h2 {
+    margin: 1rem 0;
+    }
+    
+    .container img {
+    width: 5rem;
+    }
+    
+    .timer-container {
+    margin-top: 2rem;
+    border: 1px solid white;
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 30%;
+    overflow: hidden;
+    box-sizing: border-box;
+    }
+    
+    .timer-container p {
+    margin: 0 0.9rem;
+    }
+    
+    .columns {
+    font-size: 2rem;
+    }
+    
+    
+    </style>
+</head>
+
+<body>
+
+    <section class="container">
+        <!-- Replace this img src with your logo  -->
+        <img src="./logo.png" alt="">
+        <h2 class="coming-soon"> Coming soon</h2>
+        <p> We are building special thing for you! and this will be coming within</p>
+        <div class="timer-container">
+            <p><span id="days"></span> <br><span>Days</span></p><span class="columns">:</span>
+            <p><span id="hours"></span> <br><span> Hours </span></p><span class="columns">:</span>
+            <p> <span id="minutes"></span> <br><span> Minutes </span></p><span class="columns">:</span>
+            <p> <span id="seconds"></span><br><span> Seconds </span></p>
+        </div>
+    </section>
+
+</body>
+<!-- Adding JavaScript File -->
+<script>
+
+
+let upcomingDate = new Date("jan 01, 2023 12:00:00").getTime();
+
+setInterval(() => {
+
+    let currentDate = new Date();
+
+    let diff = upcomingDate - currentDate;
+
+    let daysLeft = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+    let hoursLeft = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+    let minutesLeft = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+    let secondsLeft = Math.floor((diff % (1000 * 60)) / 1000);
+
+    if (secondsLeft < 0) {
+        stopInterval();
+    }
+
+    let day = document.getElementById('days');
+    let hour = document.getElementById('hours');
+    let minute = document.getElementById('minutes');
+    let second = document.getElementById('seconds');
+
+    day.innerHTML = daysLeft;
+    hour.innerHTML = hoursLeft;
+    minute.innerHTML = minutesLeft;
+    second.innerHTML = secondsLeft;
+}, 1000);
+</script>
+
+</html>
